@@ -30,7 +30,7 @@ FileSystem *FileSystem::GetInstance(const URI &path) {
   if (path.protocol == "file://" || path.protocol.length() == 0) {
     return LocalFileSystem::GetInstance();
   }
-  if (path.protocol == "hdfs://") {
+  if (path.protocol == "hdfs://" || path.protocol == "webhdfs://") {
 #if DMLC_USE_HDFS
     return HDFSFileSystem::GetInstance(path.host);
 #else
