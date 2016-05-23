@@ -1,5 +1,6 @@
 // Copyright by Contributors
 #include <dmlc/logging.h>
+#include <algorithm>
 #include <limits>
 #include "./hdfs_filesys.h"
 
