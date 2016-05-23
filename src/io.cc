@@ -32,7 +32,7 @@ FileSystem *FileSystem::GetInstance(const URI &path) {
   }
   if (path.protocol == "hdfs://") {
 #if DMLC_USE_HDFS
-    return HDFSFileSystem::GetInstance(path.host);
+    return HDFSFileSystem::GetInstance(path.host.empty() ? "default" : path.host);
 #else
     LOG(FATAL) << "Please compile with DMLC_USE_HDFS=1 to use hdfs";
 #endif
